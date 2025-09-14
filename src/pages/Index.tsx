@@ -22,7 +22,7 @@ const Index = () => {
       id: 3,
       title: "Парк Победы",
       description: "Прекрасное место для отдыха с аллеями, фонтанами и мемориалами военной славы.",
-      image: "/img/07880204-bdeb-467b-a072-3519f6089eb7.jpg",
+      image: "https://cdn.poehali.dev/files/6b293539-6b93-45ae-923b-32c4848ceeee.jpeg",
       category: "Парки"
     },
     {
