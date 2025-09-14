@@ -8,14 +8,14 @@ const Index = () => {
       id: 1,
       title: "Христорождественский собор",
       description: "Главный православный храм Липецка, построенный в XIX веке. Удивительная архитектура и богатая история.",
-      image: "/img/6f4096bd-b9b4-476e-97d8-a27fe76d9e45.jpg",
+      image: "https://cdn.poehali.dev/files/ce415769-8bbe-4ed6-9488-0f1ebbbfbf6c.jpeg",
       category: "Достопримечательности"
     },
     {
       id: 2,
       title: "Липецкий областной краеведческий музей",
       description: "Богатая коллекция экспонатов, рассказывающих об истории и культуре Липецкой области.",
-      image: "/img/ca92f090-abcd-4376-974a-3a85a0586139.jpg",
+      image: "https://cdn.poehali.dev/files/978b2a04-c4e9-4b8c-9a7d-ac9ad622b8e4.jpeg",
       category: "Музеи"
     },
     {
@@ -36,7 +36,7 @@ const Index = () => {
       id: 5,
       title: "Дом-музей Г.В. Плеханова",
       description: "Музей, посвященный выдающему русскому философу и революционеру.",
-      image: "/img/2a62c00b-7a17-47f7-9c4b-170bcacffe4a.jpg",
+      image: "https://cdn.poehali.dev/files/180386f2-c9d0-4d56-b0f4-5ba572dce30d.jpeg",
       category: "Музеи"
     },
     {
