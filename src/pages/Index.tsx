@@ -8,42 +8,42 @@ const Index = () => {
       id: 1,
       title: "Христорождественский собор",
       description: "Главный православный храм Липецка, построенный в XIX веке. Удивительная архитектура и богатая история.",
-      image: "/img/7c4931ac-5f7c-4a7b-8601-e4cdc776975d.jpg",
+      image: "/img/6f4096bd-b9b4-476e-97d8-a27fe76d9e45.jpg",
       category: "Достопримечательности"
     },
     {
       id: 2,
       title: "Липецкий областной краеведческий музей",
       description: "Богатая коллекция экспонатов, рассказывающих об истории и культуре Липецкой области.",
-      image: "/img/e1c67c3e-6f41-4336-be4f-2f0a0aa0fb39.jpg",
+      image: "/img/ca92f090-abcd-4376-974a-3a85a0586139.jpg",
       category: "Музеи"
     },
     {
       id: 3,
       title: "Парк Победы",
       description: "Прекрасное место для отдыха с аллеями, фонтанами и мемориалами военной славы.",
-      image: "/img/5b6d2ecf-13aa-4dcc-947f-c950bbd54353.jpg",
+      image: "/img/07880204-bdeb-467b-a072-3519f6089eb7.jpg",
       category: "Парки"
     },
     {
       id: 4,
       title: "Нижний парк",
       description: "Исторический парк с минеральными источниками, где зародился курорт Липецк.",
-      image: "/img/5b6d2ecf-13aa-4dcc-947f-c950bbd54353.jpg",
+      image: "/img/10f3459b-2cbf-482d-919f-1be9682ebe1b.jpg",
       category: "Парки"
     },
     {
       id: 5,
       title: "Дом-музей Г.В. Плеханова",
       description: "Музей, посвященный выдающему русскому философу и революционеру.",
-      image: "/img/e1c67c3e-6f41-4336-be4f-2f0a0aa0fb39.jpg",
+      image: "/img/2a62c00b-7a17-47f7-9c4b-170bcacffe4a.jpg",
       category: "Музеи"
     },
     {
       id: 6,
       title: "Соборная площадь",
       description: "Центральная площадь города с красивыми историческими зданиями и фонтанами.",
-      image: "/img/7c4931ac-5f7c-4a7b-8601-e4cdc776975d.jpg",
+      image: "/img/3147846c-8f67-47d7-b452-5f9f5ff9e747.jpg",
       category: "Достопримечательности"
     }
   ];
@@ -179,25 +179,7 @@ const Index = () => {
           </div>
         </div>
 
-        {/* CTA Section */}
-        <div className="text-center bg-gradient-to-r from-orange-500 to-blue-500 rounded-2xl p-12 text-white">
-          <h2 className="font-heading text-3xl font-bold mb-4">
-            Планируете визит в Липецк?
-          </h2>
-          <p className="text-xl mb-8 opacity-90">
-            Получите персональные рекомендации и актуальную информацию о городе
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-orange-500 hover:bg-gray-100 font-semibold">
-              Скачать гид
-              <Icon name="Download" size={20} className="ml-2" />
-            </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-orange-500 font-semibold">
-              Связаться с нами
-              <Icon name="MessageCircle" size={20} className="ml-2" />
-            </Button>
-          </div>
-        </div>
+
       </div>
     </div>
   );
