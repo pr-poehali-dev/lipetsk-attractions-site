@@ -1,5 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import Icon from "@/components/ui/icon";
 
 const Index = () => {
@@ -29,7 +30,7 @@ const Index = () => {
       id: 4,
       title: "Нижний парк",
       description: "Исторический парк с минеральными источниками, где зародился курорт Липецк.",
-      image: "/img/10f3459b-2cbf-482d-919f-1be9682ebe1b.jpg",
+      image: "https://cdn.poehali.dev/files/1237992a-d259-4c78-ad8e-10d8efd57460.jpeg",
       category: "Парки"
     },
     {
@@ -43,7 +44,7 @@ const Index = () => {
       id: 6,
       title: "Соборная площадь",
       description: "Центральная площадь города с красивыми историческими зданиями и фонтанами.",
-      image: "/img/3147846c-8f67-47d7-b452-5f9f5ff9e747.jpg",
+      image: "https://cdn.poehali.dev/files/b7033135-620f-4017-9833-43a9a95029ea.jpeg",
       category: "Достопримечательности"
     }
   ];
@@ -82,50 +83,17 @@ const Index = () => {
             <p className="text-xl md:text-2xl mb-8 opacity-90 animate-fade-in">
               Откройте для себя богатую историю, культуру и природные красоты нашего прекрасного города
             </p>
-            <Button 
-              size="lg" 
-              className="bg-white text-orange-500 hover:bg-gray-100 font-semibold px-8 py-3 text-lg animate-scale-in"
-            >
-              Начать исследование
-              <Icon name="ArrowRight" size={20} className="ml-2" />
-            </Button>
+
           </div>
         </div>
       </div>
 
-      {/* Categories Section */}
       <div className="container mx-auto px-4 py-16">
-        <div className="text-center mb-12">
-          <h2 className="font-heading text-4xl font-bold text-gray-800 mb-4">
-            Разделы
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Изучите различные аспекты Липецка через наши тематические разделы
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          {categories.map((category, index) => (
-            <Card key={category.name} className="hover:shadow-xl transition-all duration-300 hover:scale-105 animate-fade-in border-0 shadow-lg">
-              <CardHeader className="text-center pb-4">
-                <div className={`w-16 h-16 ${category.color} rounded-full flex items-center justify-center mx-auto mb-4`}>
-                  <Icon name={category.icon} size={32} className="text-white" />
-                </div>
-                <CardTitle className="font-heading text-2xl text-gray-800">
-                  {category.name}
-                </CardTitle>
-                <CardDescription className="text-lg">
-                  {category.count} {category.count === 1 ? 'место' : category.count < 5 ? 'места' : 'мест'}
-                </CardDescription>
-              </CardHeader>
-            </Card>
-          ))}
-        </div>
 
         {/* Attractions Grid */}
         <div className="mb-12">
           <h3 className="font-heading text-3xl font-bold text-gray-800 mb-8 text-center">
-            Популярные места
+            Достопримечательности Липецка
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {attractions.map((attraction, index) => (
@@ -151,10 +119,71 @@ const Index = () => {
                   <CardDescription className="text-gray-600 mb-4 line-clamp-3">
                     {attraction.description}
                   </CardDescription>
-                  <Button variant="outline" className="w-full hover:bg-orange-50 hover:border-orange-300">
-                    Подробнее
-                    <Icon name="ExternalLink" size={16} className="ml-2" />
-                  </Button>
+                  <Dialog>
+                    <DialogTrigger asChild>
+                      <Button variant="outline" className="w-full hover:bg-orange-50 hover:border-orange-300">
+                        Подробнее
+                        <Icon name="ExternalLink" size={16} className="ml-2" />
+                      </Button>
+                    </DialogTrigger>
+                    <DialogContent className="max-w-2xl">
+                      <DialogHeader>
+                        <DialogTitle className="font-heading text-2xl">{attraction.title}</DialogTitle>
+                        <DialogDescription className="text-base">
+                          <div className="mt-4">
+                            <img 
+                              src={attraction.image} 
+                              alt={attraction.title}
+                              className="w-full h-64 object-cover rounded-lg mb-4"
+                            />
+                            <p className="mb-4">{attraction.description}</p>
+                            {attraction.id === 1 && (
+                              <div className="space-y-3">
+                                <p><strong>История:</strong> Христорождественский собор был заложен в 1791 году и является одним из главных православных храмов Липецка.</p>
+                                <p><strong>Архитектура:</strong> Храм построен в стиле русского классицизма с элементами барокко. Главный купол покрыт сусальным золотом.</p>
+                                <p><strong>Адрес:</strong> пл. Соборная, 6, Липецк</p>
+                              </div>
+                            )}
+                            {attraction.id === 2 && (
+                              <div className="space-y-3">
+                                <p><strong>История:</strong> Музей основан в 1918 году и является одним из старейших музеев Черноземья.</p>
+                                <p><strong>Коллекция:</strong> Более 300 тысяч экспонатов, включая археологические находки, предметы быта, произведения искусства.</p>
+                                <p><strong>Адрес:</strong> ул. Ленина, 25, Липецк</p>
+                              </div>
+                            )}
+                            {attraction.id === 3 && (
+                              <div className="space-y-3">
+                                <p><strong>История:</strong> Парк создан в честь победы в Великой Отечественной войне и открыт в 1965 году.</p>
+                                <p><strong>Мемориалы:</strong> Вечный огонь, памятник неизвестному солдату, аллея героев.</p>
+                                <p><strong>Адрес:</strong> ул. Гагарина, Липецк</p>
+                              </div>
+                            )}
+                            {attraction.id === 4 && (
+                              <div className="space-y-3">
+                                <p><strong>История:</strong> Заложен в 1805 году по указу Александра I как курортный парк при минеральных источниках.</p>
+                                <p><strong>Особенности:</strong> Минеральные источники, исторические павильоны, липовые аллеи.</p>
+                                <p><strong>Адрес:</strong> Нижний парк, Липецк</p>
+                              </div>
+                            )}
+                            {attraction.id === 5 && (
+                              <div className="space-y-3">
+                                <p><strong>История:</strong> Музей в доме, где родился и провел детские годы философ Георгий Валентинович Плеханов.</p>
+                                <p><strong>Экспозиция:</strong> Личные вещи, документы, фотографии, воссозданная обстановка XIX века.</p>
+                                <p><strong>Адрес:</strong> ул. Плеханова, 36, Липецк</p>
+                              </div>
+                            )}
+                            {attraction.id === 6 && (
+                              <div className="space-y-3">
+                                <p><strong>История:</strong> Главная площадь города, сформировавшаяся в XVIII-XIX веках вокруг Христорождественского собора.</p>
+                                <p><strong>Архитектура:</strong> Историческая застройка, административные здания, памятники.</p>
+                                <p><strong>Адрес:</strong> пл. Соборная, Липецк</p>
+                              </div>
+                            )}
+                          </div>
+                        </DialogDescription>
+                      </DialogHeader>
+                    </DialogContent>
+                  </Dialog>
                 </CardContent>
               </Card>
             ))}
