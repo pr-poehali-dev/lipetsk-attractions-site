@@ -2,8 +2,71 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import Icon from "@/components/ui/icon";
+import { useState } from "react";
 
 const Index = () => {
+  const [selectedAnswers, setSelectedAnswers] = useState<Record<number, number>>({});
+  const [showResults, setShowResults] = useState(false);
+
+  const quizQuestions = [
+    {
+      id: 1,
+      question: "В каком году был заложен Христорождественский собор?",
+      options: ["1791", "1805", "1918", "1965"],
+      correctAnswer: 0
+    },
+    {
+      id: 2,
+      question: "Кто основал курорт в Нижнем парке?",
+      options: ["Петр I", "Екатерина II", "Александр I", "Николай II"],
+      correctAnswer: 2
+    },
+    {
+      id: 3,
+      question: "Сколько экспонатов хранится в Липецком краеведческом музее?",
+      options: ["Около 50 тысяч", "Около 100 тысяч", "Более 300 тысяч", "Более 500 тысяч"],
+      correctAnswer: 2
+    },
+    {
+      id: 4,
+      question: "В каком году был открыт Парк Победы?",
+      options: ["1945", "1955", "1965", "1975"],
+      correctAnswer: 2
+    },
+    {
+      id: 5,
+      question: "Где родился философ Г.В. Плеханов?",
+      options: ["В Москве", "В Санкт-Петербурге", "В Липецке", "В Воронеже"],
+      correctAnswer: 2
+    }
+  ];
+
+  const handleAnswerSelect = (questionId: number, answerIndex: number) => {
+    setSelectedAnswers(prev => ({
+      ...prev,
+      [questionId]: answerIndex
+    }));
+  };
+
+  const calculateScore = () => {
+    let correct = 0;
+    quizQuestions.forEach(q => {
+      if (selectedAnswers[q.id] === q.correctAnswer) {
+        correct++;
+      }
+    });
+    return correct;
+  };
+
+  const handleSubmit = () => {
+    setShowResults(true);
+  };
+
+  const resetQuiz = () => {
+    setSelectedAnswers({});
+    setShowResults(false);
+  };
+
   const attractions = [
     {
       id: 1,
@@ -209,6 +272,125 @@ const Index = () => {
         </div>
 
 
+      </div>
+
+      {/* Quiz Section */}
+      <div className="mt-20 mb-16">
+        <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 max-w-4xl mx-auto">
+          <div className="text-center mb-8">
+            <Icon name="Brain" size={48} className="mx-auto mb-4 text-orange-500" />
+            <h3 className="font-heading text-3xl font-bold text-gray-800 mb-3">
+              Тест про Липецк
+            </h3>
+            <p className="text-gray-600 text-lg">
+              Проверьте свои знания о достопримечательностях и истории города
+            </p>
+          </div>
+
+          {!showResults ? (
+            <div className="space-y-8">
+              {quizQuestions.map((question, qIndex) => (
+                <div key={question.id} className="border-b pb-6 last:border-b-0">
+                  <p className="font-semibold text-lg text-gray-800 mb-4">
+                    {qIndex + 1}. {question.question}
+                  </p>
+                  <div className="space-y-3">
+                    {question.options.map((option, oIndex) => (
+                      <button
+                        key={oIndex}
+                        onClick={() => handleAnswerSelect(question.id, oIndex)}
+                        className={`w-full text-left p-4 rounded-lg border-2 transition-all duration-200 ${
+                          selectedAnswers[question.id] === oIndex
+                            ? 'border-orange-500 bg-orange-50'
+                            : 'border-gray-200 hover:border-orange-300 hover:bg-orange-50/50'
+                        }`}
+                      >
+                        <div className="flex items-center">
+                          <div className={`w-5 h-5 rounded-full border-2 mr-3 flex items-center justify-center ${
+                            selectedAnswers[question.id] === oIndex
+                              ? 'border-orange-500 bg-orange-500'
+                              : 'border-gray-300'
+                          }`}>
+                            {selectedAnswers[question.id] === oIndex && (
+                              <div className="w-2 h-2 bg-white rounded-full"></div>
+                            )}
+                          </div>
+                          <span className="text-gray-700">{option}</span>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              ))}
+
+              <div className="text-center pt-4">
+                <Button
+                  onClick={handleSubmit}
+                  disabled={Object.keys(selectedAnswers).length !== quizQuestions.length}
+                  className="bg-gradient-to-r from-orange-500 to-blue-500 hover:from-orange-600 hover:to-blue-600 text-white px-8 py-6 text-lg"
+                >
+                  Проверить результаты
+                  <Icon name="CheckCircle" size={20} className="ml-2" />
+                </Button>
+              </div>
+            </div>
+          ) : (
+            <div className="text-center space-y-6">
+              <div className="bg-gradient-to-r from-orange-100 to-blue-100 rounded-xl p-8">
+                <Icon 
+                  name={calculateScore() >= 4 ? "Trophy" : calculateScore() >= 3 ? "Award" : "Target"} 
+                  size={64} 
+                  className="mx-auto mb-4 text-orange-500" 
+                />
+                <h4 className="font-heading text-3xl font-bold text-gray-800 mb-2">
+                  Ваш результат: {calculateScore()} из {quizQuestions.length}
+                </h4>
+                <p className="text-xl text-gray-600">
+                  {calculateScore() === 5 && "Отлично! Вы настоящий эксперт по Липецку!"}
+                  {calculateScore() === 4 && "Очень хорошо! Вы хорошо знаете город."}
+                  {calculateScore() === 3 && "Неплохо! Есть что узнать еще."}
+                  {calculateScore() < 3 && "Стоит узнать больше о Липецке!"}
+                </p>
+              </div>
+
+              <div className="space-y-4 text-left">
+                {quizQuestions.map((question, qIndex) => (
+                  <div key={question.id} className="p-4 rounded-lg border-2 ${
+                    selectedAnswers[question.id] === question.correctAnswer
+                      ? 'border-green-300 bg-green-50'
+                      : 'border-red-300 bg-red-50'
+                  }">
+                    <p className="font-semibold text-gray-800 mb-2">
+                      {qIndex + 1}. {question.question}
+                    </p>
+                    <div className="flex items-center">
+                      <Icon 
+                        name={selectedAnswers[question.id] === question.correctAnswer ? "CheckCircle" : "XCircle"} 
+                        size={20} 
+                        className={selectedAnswers[question.id] === question.correctAnswer ? "text-green-600 mr-2" : "text-red-600 mr-2"}
+                      />
+                      <span className="text-gray-700">
+                        {selectedAnswers[question.id] === question.correctAnswer
+                          ? `Верно: ${question.options[question.correctAnswer]}`
+                          : `Неверно. Правильный ответ: ${question.options[question.correctAnswer]}`
+                        }
+                      </span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <Button
+                onClick={resetQuiz}
+                variant="outline"
+                className="border-orange-300 text-orange-600 hover:bg-orange-50 px-8 py-6 text-lg"
+              >
+                Пройти тест заново
+                <Icon name="RotateCcw" size={20} className="ml-2" />
+              </Button>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
