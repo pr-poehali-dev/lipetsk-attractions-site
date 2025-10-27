@@ -176,7 +176,7 @@ const Index = () => {
       id: 7,
       title: "Площадь Петра Великого",
       description: "Главная пешеходная зона города с памятником Петру I и современными фонтанами.",
-      image: "https://cdn.poehali.dev/files/ce415769-8bbe-4ed6-9488-0f1ebbbfbf6c.jpeg",
+      image: "https://cdn.poehali.dev/files/673fc0c2-cbbd-466e-9f4e-97b5e1e558be.jpeg",
       category: "Площади и улицы",
       detailInfo: {
         history: "Площадь названа в честь Петра I, основавшего металлургические заводы в Липецке.",
@@ -188,7 +188,7 @@ const Index = () => {
       id: 8,
       title: "Липецкий зоопарк",
       description: "Современный зоопарк с разнообразной коллекцией животных и комфортными условиями.",
-      image: "https://cdn.poehali.dev/files/6b293539-6b93-45ae-923b-32c4848ceeee.jpeg",
+      image: "https://cdn.poehali.dev/files/2676769e-ad20-430b-86ed-a597d481e05d.jpeg",
       category: "Развлечения",
       detailInfo: {
         history: "Открыт в 1973 году, сегодня один из лучших зоопарков Черноземья.",
@@ -200,7 +200,7 @@ const Index = () => {
       id: 9,
       title: "Древне-Успенская церковь",
       description: "Старинный православный храм XVIII века с уникальной архитектурой.",
-      image: "https://cdn.poehali.dev/files/b7033135-620f-4017-9833-43a9a95029ea.jpeg",
+      image: "https://cdn.poehali.dev/files/1a84c6de-2c05-474c-885b-e97075d8bdef.jpeg",
       category: "Храмы и соборы",
       detailInfo: {
         history: "Построена в 1730-х годах, одна из старейших сохранившихся церквей Липецка.",
@@ -212,7 +212,7 @@ const Index = () => {
       id: 10,
       title: "Липецкий театр драмы",
       description: "Областной драматический театр с богатым репертуаром и историей.",
-      image: "https://cdn.poehali.dev/files/978b2a04-c4e9-4b8c-9a7d-ac9ad622b8e4.jpeg",
+      image: "https://cdn.poehali.dev/files/c3cf7209-dd2e-4df0-a3f8-4f62bd75647d.jpeg",
       category: "Культура и искусство",
       detailInfo: {
         history: "Основан в 1921 году, один из старейших театров Черноземья.",
@@ -224,7 +224,7 @@ const Index = () => {
       id: 11,
       title: "Липецкий музей народного и декоративно-прикладного искусства",
       description: "Уникальная коллекция народных промыслов и ремесел региона.",
-      image: "https://cdn.poehali.dev/files/180386f2-c9d0-4d56-b0f4-5ba572dce30d.jpeg",
+      image: "https://cdn.poehali.dev/files/fbbcd469-f65a-40e4-9289-18dd7db43da7.jpeg",
       category: "Музеи",
       detailInfo: {
         history: "Открыт в 1996 году для сохранения традиций народных промыслов Липецкого края.",
@@ -236,7 +236,7 @@ const Index = () => {
       id: 12,
       title: "Верхний парк культуры и отдыха",
       description: "Любимое место отдыха липчан с аттракционами и зелеными аллеями.",
-      image: "https://cdn.poehali.dev/files/1237992a-d259-4c78-ad8e-10d8efd57460.jpeg",
+      image: "https://cdn.poehali.dev/files/c3cf7209-dd2e-4df0-a3f8-4f62bd75647d.jpeg",
       category: "Парки и скверы",
       detailInfo: {
         history: "Основан в начале XX века как городской сад.",
